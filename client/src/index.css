@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Roboto', sans-serif;
+  --font-display: 'Inter', sans-serif;
+
+  /* Soft Cloud Background */
+  --background: 220 14% 96%;
+  /* Graphite Text */
+  --foreground: 221 39% 11%;
+  
+  --card: 0 0% 100%;
+  --card-foreground: 221 39% 11%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 221 39% 11%;
+  
+  /* Deep Data Blue */
+  --primary: 224 64% 33%;
+  --primary-foreground: 210 40% 98%;
+  
+  /* Midnight Slate */
+  --secondary: 221 39% 11%;
+  --secondary-foreground: 210 40% 98%;
+  
+  /* Neo-Mint / Signal Green */
+  --accent: 142 71% 45%;
+  --accent-foreground: 210 40% 98%;
+  
+  --muted: 220 14% 90%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 220 13% 85%;
+  --input: 220 13% 85%;
+  --ring: 224 64% 33%;
+
+  --radius: 0.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: hsl(222 47% 11%); /* Deep Navy #0F172A */
+  }
+}
+
+/* Custom premium hover utilities matching brand system */
+@layer utilities {
+  .hover-elevate {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg;
+  }
+  
+  .glass-nav {
+    @apply bg-background/80 backdrop-blur-md border-b border-border/50;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary to-accent animate-gradient-x;
+  }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 15s ease infinite;
+}
